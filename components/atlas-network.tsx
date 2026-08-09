@@ -6,35 +6,47 @@ import {
   ShieldCheck,
   Waypoints,
 } from "lucide-react";
+import { getSiteCopy, type Locale } from "@/lib/i18n";
 
-const nodes = [
-  {
-    label: "AI",
-    detail: "Intelligence",
-    icon: BrainCircuit,
-    className: "left-0 top-[8%]",
-  },
-  {
-    label: "DATA",
-    detail: "Shared context",
-    icon: Database,
-    className: "right-0 top-[8%]",
-  },
-  {
-    label: "APIs",
-    detail: "Connectors",
-    icon: PlugZap,
-    className: "left-0 bottom-[8%]",
-  },
-  {
-    label: "KNOWLEDGE",
-    detail: "Search & context",
-    icon: Waypoints,
-    className: "right-0 bottom-[8%]",
-  },
-];
+function getNodes(locale: Locale) {
+  const copy = getSiteCopy(locale).network;
 
-export function AtlasNetwork() {
+  return [
+    {
+      label: "AI",
+      detail: copy.aiDetail,
+      icon: BrainCircuit,
+      className: "left-0 top-[8%]",
+      compact: false,
+    },
+    {
+      label: "DATA",
+      detail: copy.dataDetail,
+      icon: Database,
+      className: "right-0 top-[8%]",
+      compact: false,
+    },
+    {
+      label: "APIs",
+      detail: copy.apiDetail,
+      icon: PlugZap,
+      className: "left-0 bottom-[8%]",
+      compact: false,
+    },
+    {
+      label: "KNOWLEDGE",
+      detail: copy.knowledgeDetail,
+      icon: Waypoints,
+      className: "right-0 bottom-[8%]",
+      compact: true,
+    },
+  ];
+}
+
+export function AtlasNetwork({ locale }: { locale: Locale }) {
+  const copy = getSiteCopy(locale);
+  const nodes = getNodes(locale);
+
   return (
     <div className="relative mt-10 min-h-[300px] sm:mt-12 sm:min-h-[340px]">
       <div className="absolute inset-x-[12%] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-blue-200/25 to-transparent" />
@@ -77,7 +89,7 @@ export function AtlasNetwork() {
               ATLAS
             </p>
             <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.2em] text-white/28">
-              N Plus Core
+              {copy.network.core}
             </p>
           </div>
         </div>
@@ -93,7 +105,13 @@ export function AtlasNetwork() {
               <node.icon size={15} />
             </span>
             <div className="min-w-0">
-              <p className="truncate text-[9px] font-semibold tracking-[0.16em] text-white/68">
+              <p
+                className={
+                  node.compact
+                    ? "whitespace-nowrap text-[7px] font-semibold tracking-[0.06em] text-white/68 sm:text-[8px]"
+                    : "truncate text-[9px] font-semibold tracking-[0.16em] text-white/68"
+                }
+              >
                 {node.label}
               </p>
               <p className="mt-1 truncate text-[8px] text-white/28">
@@ -107,7 +125,7 @@ export function AtlasNetwork() {
       <div className="absolute bottom-0 left-1/2 z-20 -translate-x-1/2 translate-y-1/2">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0b0e14] px-3.5 py-2 text-[8px] font-semibold uppercase tracking-[0.18em] text-white/36">
           <ShieldCheck size={13} className="text-violet-200/60" />
-          Governed connection layer
+          {copy.network.governed}
         </div>
       </div>
 

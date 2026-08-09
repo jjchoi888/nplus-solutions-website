@@ -2,14 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { navigation } from "@/lib/site-data";
+import { getNavigation } from "@/lib/site-data";
+import {
+  getSiteCopy,
+  languageOptions,
+  localizedHomeHref,
+  switchLocalePath,
+  type Locale,
+} from "@/lib/i18n";
 
-export function SiteHeader() {
+export function SiteHeader({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const copy = getSiteCopy(locale);
+  const navigation = getNavigation(locale);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -28,18 +39,19 @@ export function SiteHeader() {
     window.addEventListener("keydown", onKeyDown);
 
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+  }, []);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
           ? "border-b border-white/8 bg-[#07080b]/82 backdrop-blur-xl"
           : "bg-transparent"
-        }`}
+      }`}
     >
       <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
         <Link
-          href="/"
+          href={localizedHomeHref(locale)}
           className="flex shrink-0 items-center gap-3"
           aria-label="N Plus Solutions Inc. home"
         >
@@ -63,34 +75,57 @@ export function SiteHeader() {
         </Link>
 
         <nav
-          className="hidden items-center gap-8 lg:flex"
+          className="hidden items-center gap-6 xl:flex"
           aria-label="Primary navigation"
         >
           {navigation.map((item) => (
             <a
               key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-white/58 transition-colors hover:text-white"
+              href={localizedHomeHref(locale, item.href)}
+              className="whitespace-nowrap text-sm font-medium text-white/58 transition-colors hover:text-white"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 xl:flex">
+          <div
+            className="flex items-center rounded-full border border-white/10 bg-white/[0.035] p-1"
+            aria-label={copy.header.language}
+          >
+            {languageOptions.map((option) => (
+              <Link
+                key={option.locale}
+                href={switchLocalePath(pathname, option.locale)}
+                className={`rounded-full px-2.5 py-1.5 text-[10px] font-semibold transition ${
+                  option.locale === locale
+                    ? "bg-white text-black"
+                    : "text-white/42 hover:text-white"
+                }`}
+                aria-current={option.locale === locale ? "page" : undefined}
+                title={option.label}
+              >
+                {option.shortLabel}
+              </Link>
+            ))}
+          </div>
+
           <a
-            href="#contact"
+            href={localizedHomeHref(locale, "#contact")}
             className="inline-flex h-11 items-center justify-center rounded-full border border-white/12 bg-white px-5 text-sm font-semibold text-[#0a0b0e] transition hover:scale-[1.02] hover:bg-white/90"
           >
-            Start a conversation
+            {copy.header.cta}
           </a>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/[0.06] text-white lg:hidden"
-          aria-label={open ? "Close navigation" : "Open navigation"}
+          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/[0.06] text-white xl:hidden"
+          aria-label={
+            open ? copy.header.closeNavigation : copy.header.openNavigation
+          }
           aria-expanded={open}
           aria-controls="mobile-navigation"
         >
@@ -106,13 +141,13 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute right-5 top-full z-40 mt-2 w-[min(82vw,320px)] origin-top-right overflow-hidden rounded-2xl border border-white/12 bg-[#101116]/82 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:right-8 lg:hidden"
+            className="absolute right-5 top-full z-40 mt-2 w-[min(86vw,340px)] origin-top-right overflow-hidden rounded-2xl border border-white/12 bg-[#101116]/88 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:right-8 xl:hidden"
           >
             <nav className="flex flex-col" aria-label="Mobile navigation">
               {navigation.map((item, index) => (
                 <motion.a
                   key={item.href}
-                  href={item.href}
+                  href={localizedHomeHref(locale, item.href)}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.035 }}
@@ -126,6 +161,28 @@ export function SiteHeader() {
                 </motion.a>
               ))}
             </nav>
+
+            <div className="mt-2 border-t border-white/8 p-2">
+              <p className="px-2 pb-2 pt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/28">
+                {copy.header.language}
+              </p>
+              <div className="grid grid-cols-3 gap-1.5">
+                {languageOptions.map((option) => (
+                  <Link
+                    key={option.locale}
+                    href={switchLocalePath(pathname, option.locale)}
+                    onClick={() => setOpen(false)}
+                    className={`rounded-xl px-2 py-2.5 text-center text-xs font-semibold transition ${
+                      option.locale === locale
+                        ? "bg-white text-black"
+                        : "bg-white/[0.04] text-white/52 hover:bg-white/[0.08] hover:text-white"
+                    }`}
+                  >
+                    {option.shortLabel}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

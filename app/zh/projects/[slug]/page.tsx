@@ -14,7 +14,7 @@ export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProjects("en").find((item) => item.slug === slug);
+  const project = getProjects("zh").find((item) => item.slug === slug);
 
   if (!project) return {};
 
@@ -22,7 +22,7 @@ export async function generateMetadata({
     title: project.title,
     description: project.summary,
     alternates: {
-      canonical: `/projects/${slug}`,
+      canonical: `/zh/projects/${slug}`,
       languages: {
         en: `/projects/${slug}`,
         ko: `/ko/projects/${slug}`,
@@ -34,5 +34,5 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  return <ProjectDetailPage locale="en" slug={slug} />;
+  return <ProjectDetailPage locale="zh" slug={slug} />;
 }
