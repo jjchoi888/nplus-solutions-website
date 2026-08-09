@@ -28,12 +28,22 @@ const accentMap = {
   },
 };
 
-export function ProjectVisual({ project, large = false }: { project: Project; large?: boolean }) {
+export function ProjectVisual({
+  project,
+  large = false,
+}: {
+  project: Project;
+  large?: boolean;
+}) {
   const styles = accentMap[project.accent];
   const common = `${styles.line} fill-none stroke-[1.35]`;
 
   return (
-    <div className={`relative overflow-hidden bg-[#0d0f14] ${large ? "min-h-[440px] rounded-[2rem]" : "aspect-[16/11]"}`}>
+    <div
+      className={`relative overflow-hidden bg-[#0d0f14] ${
+        large ? "min-h-[440px] rounded-[2rem]" : "aspect-[16/11]"
+      }`}
+    >
       <div className={`absolute inset-0 bg-gradient-to-br ${styles.glow}`} />
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:42px_42px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
       <div className="absolute left-5 top-5 rounded-full border border-white/12 bg-black/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/62 backdrop-blur-md">
@@ -46,6 +56,21 @@ export function ProjectVisual({ project, large = false }: { project: Project; la
         role="img"
         aria-label={`${project.title} abstract project graphic`}
       >
+        {project.slug === "atlas" && (
+          <>
+            <circle cx="300" cy="210" r="66" className={`${common} ${styles.soft}`} />
+            <circle cx="300" cy="210" r="32" className={common} />
+            <circle cx="145" cy="120" r="34" className={common} />
+            <circle cx="455" cy="120" r="34" className={common} />
+            <circle cx="130" cy="305" r="34" className={common} />
+            <circle cx="470" cy="305" r="34" className={common} />
+            <circle cx="300" cy="350" r="28" className={common} />
+            <path d="M178 139 247 181M422 139 353 181M160 280 246 235M440 280 354 235M300 276v46" className={common} />
+            <path d="M145 86c86-45 224-45 310 0M105 334c102 56 288 56 390 0" className={`${common} opacity-35`} />
+            <path d="M232 210h136M300 142v136" className={`${common} opacity-55`} />
+          </>
+        )}
+
         {project.slug === "pawcircle" && (
           <>
             <circle cx="300" cy="230" r="75" className={`${common} ${styles.soft}`} />
@@ -83,7 +108,9 @@ export function ProjectVisual({ project, large = false }: { project: Project; la
                   width="25"
                   height="21"
                   rx="4"
-                  className={`${common} ${row === 1 && column === 2 ? styles.soft : ""}`}
+                  className={`${common} ${
+                    row === 1 && column === 2 ? styles.soft : ""
+                  }`}
                 />
               )),
             )}
@@ -109,43 +136,17 @@ export function ProjectVisual({ project, large = false }: { project: Project; la
           <>
             <path d="M30 330 150 165l72 83 94-145 119 150 61-78 74 155Z" className={`${common} ${styles.soft}`} />
             <path d="M30 330 150 165l72 83 94-145 119 150 61-78 74 155" className={common} />
-
             <path d="M165 330v-88l72-52 72 52v88" className={common} />
             <path d="M191 330v-62h92v62M218 268v62" className={common} />
             <path d="M148 242h178" className={`${common} opacity-55`} />
-
             <path d="M370 330v-67l55-42 55 42v67" className={common} />
             <path d="M393 330v-45h64v45" className={common} />
-
-            <path d="M75 330c38-30 57-60 62-91M92 330c26-37 39-70 40-101" className={`${common} opacity-60`} />
             <path d="M100 259l32-52 32 52M108 282l24-41 24 41" className={common} />
-
-            <path d="M300 345c20-44 49-65 86-65 44 0 72 22 106 65" className={`${common} stroke-[2.2]`} />
             <circle cx="300" cy="92" r="24" className={`${common} opacity-55`} />
           </>
         )}
 
-        {project.slug === "evelyns-place" && (
-          <>
-            <path d="M125 335V160h350v175M90 335h420" className={`${common} ${styles.soft}`} />
-            <path d="M125 335V160h350v175M90 335h420" className={common} />
 
-            <path d="M160 160c27-66 82-100 140-100s113 34 140 100" className={common} />
-            <path d="M190 335v-105h220v105" className={common} />
-            <path d="M300 230v105" className={`${common} opacity-45`} />
-
-            <path d="M168 195h264" className={`${common} opacity-55`} />
-            <circle cx="230" cy="195" r="14" className={common} />
-            <circle cx="300" cy="195" r="14" className={common} />
-            <circle cx="370" cy="195" r="14" className={common} />
-
-            <path d="M220 294h64M316 294h64" className={`${common} stroke-[2.2]`} />
-            <path d="M234 294v32M270 294v32M330 294v32M366 294v32" className={common} />
-
-            <path d="M488 120c22-17 45-10 47 9 2 20-18 35-47 42-29-7-49-22-47-42 2-19 25-26 47-9Z" className={common} />
-            <path d="M488 120v51M463 129l25 17 25-17" className={`${common} opacity-55`} />
-          </>
-        )}
       </svg>
 
       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0d0f14] to-transparent" />
