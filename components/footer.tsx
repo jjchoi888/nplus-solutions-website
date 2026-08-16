@@ -17,7 +17,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Logo />
-            <p className="mt-5 max-w-sm text-sm leading-6 text-white/38">
+            <p className="mt-5 max-w-sm text-sm leading-6 text-white/52">
               {copy.footer.tagline}
             </p>
           </div>
@@ -26,14 +26,14 @@ export function Footer({ locale }: { locale: Locale }) {
               <a
                 key={item.href}
                 href={localizedHomeHref(locale, item.href)}
-                className="text-sm text-white/45 transition hover:text-white"
+                className="text-sm text-white/52 transition hover:text-white"
               >
                 {item.label}
               </a>
             ))}
           </div>
         </div>
-        <div className="mt-10 flex items-center justify-between border-t border-white/8 pt-6 text-xs text-white/28">
+        <div className="mt-10 flex items-center justify-between border-t border-white/8 pt-6 text-xs text-white/52">
           <p>© {new Date().getFullYear()} N Plus Solutions Inc.</p>
           <a
             href="#top"

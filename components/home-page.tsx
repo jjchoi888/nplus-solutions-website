@@ -124,14 +124,14 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
 
         <div className="relative mx-auto flex min-h-[680px] max-w-[1440px] flex-col justify-center px-5 py-24 sm:px-8 lg:min-h-[780px] lg:px-12">
-          <Reveal>
+          <Reveal eager>
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.19em] text-white/52 backdrop-blur-xl">
               <Sparkles size={13} className="text-violet-300" />
               {copy.hero.badge}
             </div>
           </Reveal>
 
-          <Reveal delay={0.08}>
+          <Reveal eager>
             <h1 className={`text-balance mt-7 max-w-6xl font-semibold text-white ${heroTitleTypography}`}>
               {copy.hero.titleLine1}
               <span className="block bg-gradient-to-r from-white via-white to-white/32 bg-clip-text text-transparent">
@@ -141,13 +141,13 @@ export function HomePage({ locale }: { locale: Locale }) {
           </Reveal>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
-            <Reveal delay={0.14}>
+            <Reveal eager>
               <p className={`max-w-2xl text-base text-white/54 sm:text-lg ${locale === "ko" ? bodyTypography : "leading-7 sm:leading-8"}`}>
                 {copy.hero.description}
               </p>
             </Reveal>
 
-            <Reveal delay={0.2} className="flex flex-wrap gap-3 lg:justify-end">
+            <Reveal eager className="flex flex-wrap gap-3 lg:justify-end">
               <a
                 href="#atlas"
                 className="inline-flex h-13 items-center gap-3 rounded-full bg-white px-6 text-sm font-semibold text-black transition hover:scale-[1.02]"
