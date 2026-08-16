@@ -1,28 +1,29 @@
 import type { MetadataRoute } from "next";
+import { languageAlternates, localizedUrl } from "@/lib/seo";
 import { projects } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://nplus-solutions.example";
+  const locales = ["en", "ko", "zh"] as const;
 
-  const locales = [
-    { prefix: "", priority: 1 },
-    { prefix: "/ko", priority: 0.95 },
-    { prefix: "/zh", priority: 0.95 },
-  ] as const;
-
-  return locales.flatMap(({ prefix, priority }) => [
-    {
-      url: `${baseUrl}${prefix}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority,
+  const homeEntries = locales.map((locale) => ({
+    url: localizedUrl(locale),
+    alternates: {
+      languages: languageAlternates(),
     },
-    ...projects.map((project) => ({
-      url: `${baseUrl}${prefix}/projects/${project.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
-  ]);
+  }));
+
+  const projectEntries = locales.flatMap((locale) =>
+    projects.map((project) => {
+      const path = `/projects/${project.slug}`;
+
+      return {
+        url: localizedUrl(locale, path),
+        alternates: {
+          languages: languageAlternates(path),
+        },
+      };
+    }),
+  );
+
+  return [...homeEntries, ...projectEntries];
 }

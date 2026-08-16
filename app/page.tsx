@@ -1,20 +1,23 @@
-import type { Metadata } from "next";
 import { HomePage } from "@/components/home-page";
+import { HomeStructuredData } from "@/components/seo-structured-data";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "N Plus Solutions Inc. | Software, Platforms & Intelligence" },
-  description:
-    "N Plus Solutions Inc. designs and develops connected software, digital platforms, AI-enabled systems, and industry-specific technology solutions.",
-  alternates: {
-    canonical: "/",
-    languages: {
-      en: "/",
-      ko: "/ko",
-      "zh-CN": "/zh",
-    },
-  },
-};
+const title = "N Plus Solutions | Software, Digital Platforms & AI";
+const description =
+  "N Plus Solutions designs and develops connected software, digital platforms, AI-enabled systems, fintech, hospitality technology, and industry-specific solutions.";
+
+export const metadata = createSeoMetadata({
+  locale: "en",
+  title,
+  description,
+  absoluteTitle: true,
+});
 
 export default function Page() {
-  return <HomePage locale="en" />;
+  return (
+    <>
+      <HomeStructuredData />
+      <HomePage locale="en" />
+    </>
+  );
 }

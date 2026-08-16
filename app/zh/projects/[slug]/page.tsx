@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { ProjectDetailPage } from "@/components/project-detail-page";
+import { ProjectBreadcrumbStructuredData } from "@/components/seo-structured-data";
+import { createSeoMetadata } from "@/lib/seo";
 import { getProjects, projects } from "@/lib/site-data";
 
 type ProjectPageProps = {
@@ -18,21 +20,28 @@ export async function generateMetadata({
 
   if (!project) return {};
 
-  return {
+  return createSeoMetadata({
+    locale: "zh",
+    path: `/projects/${slug}`,
     title: project.title,
     description: project.summary,
-    alternates: {
-      canonical: `/zh/projects/${slug}`,
-      languages: {
-        en: `/projects/${slug}`,
-        ko: `/ko/projects/${slug}`,
-        "zh-CN": `/zh/projects/${slug}`,
-      },
-    },
-  };
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  return <ProjectDetailPage locale="zh" slug={slug} />;
+  const project = getProjects("zh").find((item) => item.slug === slug);
+
+  return (
+    <>
+      {project ? (
+        <ProjectBreadcrumbStructuredData
+          locale="zh"
+          slug={slug}
+          name={project.title}
+        />
+      ) : null}
+      <ProjectDetailPage locale="zh" slug={slug} />
+    </>
+  );
 }
