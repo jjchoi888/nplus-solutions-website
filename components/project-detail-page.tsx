@@ -1,7 +1,8 @@
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
+import { ProjectMediaSlider } from "@/components/project-media-slider";
 import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
@@ -77,11 +78,32 @@ export function ProjectDetailPage({
                 <p className="mt-8 max-w-2xl text-lg leading-8 text-white/52">
                   {project.summary}
                 </p>
+
+                {project.website && (
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-7 inline-flex h-12 items-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-black transition hover:scale-[1.02] hover:bg-white/90"
+                  >
+                    {copy.projectPage.visitWebsite}
+                    <ExternalLink size={16} />
+                  </a>
+                )}
               </Reveal>
             </div>
 
             <Reveal delay={0.12}>
-              <ProjectVisual project={project} large />
+              {project.images?.length ? (
+                <ProjectMediaSlider
+                  slug={project.slug}
+                  title={project.title}
+                  locale={locale}
+                  large
+                />
+              ) : (
+                <ProjectVisual project={project} large />
+              )}
             </Reveal>
           </div>
         </div>

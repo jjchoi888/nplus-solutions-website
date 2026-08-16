@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { ContentProtection } from "@/components/content-protection";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nplus-solutions.example";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://nplus-solutions.example";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -10,14 +12,15 @@ export const metadata: Metadata = {
     template: "%s | N Plus Solutions Inc.",
   },
   description:
-    "N Plus Solutions Inc. develops technology, fintech, tourism, hospitality, construction, property, and business solutions.",
+    "N Plus Solutions Inc. develops connected software, digital platforms, AI-enabled systems, fintech, tourism, hospitality, and business solutions.",
   keywords: [
     "N Plus Solutions",
     "Next Plus",
-    "technology platforms",
+    "software development",
+    "digital platforms",
+    "AI systems",
     "fintech solutions",
-    "tourism development",
-    "hospitality development",
+    "hospitality technology",
     "project management",
   ],
   openGraph: {
@@ -39,10 +42,15 @@ export const viewport: Viewport = {
   themeColor: "#07080b",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ContentProtection />
+        {children}
+      </body>
     </html>
   );
 }

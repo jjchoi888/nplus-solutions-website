@@ -1,47 +1,21 @@
-import {
-  BrainCircuit,
-  Building2,
-  ChartNoAxesCombined,
-  CloudCog,
-  Code2,
-  CreditCard,
-  Database,
-  Hotel,
-  Layers3,
-  Lightbulb,
-  Map,
-  Network,
-  PawPrint,
-  PlugZap,
-  Rocket,
-  Shapes,
-  ShieldCheck,
-  Smartphone,
-  Trees,
-  Workflow,
-  type LucideIcon,
-} from "lucide-react";
 import { getSiteCopy, type Locale } from "@/lib/i18n";
 
 export type BusinessArea = {
   number: string;
   title: string;
   description: string;
-  icon: LucideIcon;
 };
 
 export type CoreCapability = {
   number: string;
   title: string;
   description: string;
-  icon: LucideIcon;
 };
 
 export type AtlasCapability = {
   number: string;
   title: string;
   description: string;
-  icon: LucideIcon;
 };
 
 export type Project = {
@@ -54,14 +28,14 @@ export type Project = {
   businessArea: string;
   capabilities: string[];
   accent: "violet" | "blue" | "cyan" | "orange" | "green";
-  icon: LucideIcon;
+  website?: string;
+  images?: string[];
 };
 
 export type ApproachItem = {
   number: string;
   title: string;
   description: string;
-  icon: LucideIcon;
 };
 
 export function getNavigation(locale: Locale) {
@@ -76,15 +50,6 @@ export function getNavigation(locale: Locale) {
     { label: copy.contact, href: "#contact" },
   ];
 }
-
-const atlasIcons = [
-  Network,
-  PlugZap,
-  Database,
-  BrainCircuit,
-  ShieldCheck,
-  CloudCog,
-] as const;
 
 const atlasText = {
   en: [
@@ -190,18 +155,8 @@ export function getAtlasCapabilities(locale: Locale): AtlasCapability[] {
     number: String(index + 1).padStart(2, "0"),
     title: item.title,
     description: item.description,
-    icon: atlasIcons[index],
   }));
 }
-
-const coreIcons = [
-  Code2,
-  Smartphone,
-  PlugZap,
-  BrainCircuit,
-  Workflow,
-  ShieldCheck,
-] as const;
 
 const coreText = {
   en: [
@@ -307,17 +262,8 @@ export function getCoreCapabilities(locale: Locale): CoreCapability[] {
     number: String(index + 1).padStart(2, "0"),
     title: item.title,
     description: item.description,
-    icon: coreIcons[index],
   }));
 }
-
-const businessIcons = [
-  Smartphone,
-  CreditCard,
-  Hotel,
-  Building2,
-  ChartNoAxesCombined,
-] as const;
 
 const businessText = {
   en: [
@@ -408,26 +354,80 @@ export function getBusinessAreas(locale: Locale): BusinessArea[] {
     number: String(index + 1).padStart(2, "0"),
     title: item.title,
     description: item.description,
-    icon: businessIcons[index],
   }));
 }
 
 const projectMeta = [
-  { slug: "atlas", number: "01", accent: "blue", icon: Layers3 },
-  { slug: "pawcircle", number: "02", accent: "violet", icon: PawPrint },
-  { slug: "paynplus", number: "03", accent: "blue", icon: CreditCard },
-  { slug: "hotelnplus", number: "04", accent: "cyan", icon: Hotel },
+  { slug: "atlas", number: "01", accent: "blue" },
+  {
+    slug: "pawcircle",
+    number: "02",
+    accent: "violet",
+    website: "https://pawcircle-ten.vercel.app",
+    images: [
+      "/projects/pawcircle/paw1.webp",
+      "/projects/pawcircle/paw2.webp",
+    ],
+  },
+  {
+    slug: "paynplus",
+    number: "03",
+    accent: "blue",
+    website: "https://admin.paynplus.com",
+    images: [
+      "/projects/paynplus/pgmain.webp",
+      "/projects/paynplus/pgaccept.webp",
+      "/projects/paynplus/pgindustry.webp",
+      "/projects/paynplus/pgmerchant.webp",
+      "/projects/paynplus/pgpartner.webp",
+      "/projects/paynplus/pgqr.webp",
+      "/projects/paynplus/pgwhy.webp",
+      "/projects/paynplus/pgadmin.webp",
+    ],
+  },
+  {
+    slug: "tableorder",
+    number: "04",
+    accent: "orange",
+    website: "https://order-pay-get.web.app",
+    images: [
+      "/projects/tableorder/orderhome.webp",
+      "/projects/tableorder/orderentrance.webp",
+      "/projects/tableorder/ordermenu.webp",
+      "/projects/tableorder/ordercart.webp",
+      "/projects/tableorder/orderpayselect.webp",
+      "/projects/tableorder/orderpaypr.webp",
+      "/projects/tableorder/ordercallstff.webp",
+      "/projects/tableorder/ordergeneral.webp",
+      "/projects/tableorder/orderfinance.webp",
+      "/projects/tableorder/orderhr.webp",
+    ],
+  },
+  {
+    slug: "hotelnplus",
+    number: "05",
+    accent: "cyan",
+    website: "https://hotelnplus.com",
+    images: [
+      "/projects/hotelnplus/pmsmain.webp",
+      "/projects/hotelnplus/pmsdashboard.webp",
+      "/projects/hotelnplus/pmsfront.webp",
+      "/projects/hotelnplus/pmschckin.webp",
+      "/projects/hotelnplus/pmsinventory.webp",
+      "/projects/hotelnplus/pmsevent.webp",
+      "/projects/hotelnplus/pmsfinance.webp",
+      "/projects/hotelnplus/pmstv.webp",
+    ],
+  },
   {
     slug: "mountain-bike-tourism-complex",
-    number: "05",
+    number: "06",
     accent: "orange",
-    icon: Trees,
   },
   {
     slug: "mountain-resort-complex",
-    number: "06",
+    number: "07",
     accent: "green",
-    icon: Trees,
   },
 ] as const;
 
@@ -476,6 +476,21 @@ const projectText = {
         "POS, online, and QR payment integration",
         "Transaction monitoring and reporting",
         "Compliance-ready onboarding workflows",
+      ],
+    },
+    {
+      title: "Table Order & Pay",
+      eyebrow: "F&B Order, Payment & Operations Platform",
+      summary:
+        "An integrated F&B platform that lets guests order and pay directly from the table while connecting POS, finance, accounting, HR, and workforce operations.",
+      description:
+        "Table Order & Pay is designed for restaurants, cafés, bars, and other F&B businesses. Guests can browse menus, place orders, call staff, and complete payment from the table, while operators manage POS workflows, sales, settlement, finance, accounting, HR, labor, and operational administration through one connected platform.",
+      businessArea: "Technology & Digital Platforms",
+      capabilities: [
+        "Table ordering and integrated payment",
+        "POS, menu, cart, and staff-call workflows",
+        "Finance, accounting, and settlement management",
+        "HR, workforce, and operational administration",
       ],
     },
     {
@@ -571,6 +586,21 @@ const projectText = {
       ],
     },
     {
+      title: "Table Order & Pay",
+      eyebrow: "F&B 주문·결제·운영 통합 플랫폼",
+      summary:
+        "고객이 테이블에서 주문과 결제를 동시에 처리하고 POS, 회계, 재무, 인사와 노무까지 연결하는 F&B 통합 운영 솔루션.",
+      description:
+        "Table Order & Pay는 레스토랑, 카페, 바 등 F&B 사업자를 위한 통합 운영 플랫폼입니다. 고객은 테이블에서 메뉴 확인, 주문, 직원 호출과 결제를 직접 처리할 수 있으며, 사업자는 POS, 매출, 정산, 재무·회계, 인사·노무 및 운영 관리 기능을 하나의 연결된 시스템에서 관리할 수 있습니다.",
+      businessArea: "기술 & 디지털 플랫폼",
+      capabilities: [
+        "테이블 주문 및 통합 결제",
+        "POS·메뉴·장바구니·직원 호출 워크플로",
+        "재무·회계·정산 관리",
+        "인사·노무 및 운영 관리",
+      ],
+    },
+    {
       title: "Hotelnplus",
       eyebrow: "호스피탈리티 기술 플랫폼",
       summary:
@@ -663,6 +693,21 @@ const projectText = {
       ],
     },
     {
+      title: "Table Order & Pay",
+      eyebrow: "餐饮点餐·支付·运营一体化平台",
+      summary:
+        "让顾客在餐桌端完成点餐与支付，并将 POS、财务、会计、人事与劳务管理连接起来的餐饮业综合运营解决方案。",
+      description:
+        "Table Order & Pay 面向餐厅、咖啡厅、酒吧及其他餐饮企业。顾客可在餐桌端查看菜单、下单、呼叫员工并完成支付；经营者则可在同一平台中管理 POS、销售、结算、财务会计、人事劳务及日常运营。",
+      businessArea: "科技与数字平台",
+      capabilities: [
+        "餐桌点餐与一体化支付",
+        "POS、菜单、购物车与员工呼叫流程",
+        "财务、会计与结算管理",
+        "人事、劳务与运营管理",
+      ],
+    },
+    {
       title: "Hotelnplus",
       eyebrow: "酒店业技术平台",
       summary:
@@ -724,12 +769,11 @@ export function getProjects(locale: Locale): Project[] {
       businessArea: item.businessArea,
       capabilities: [...item.capabilities],
       accent: meta.accent,
-      icon: meta.icon,
+      website: "website" in meta ? meta.website : undefined,
+      images: "images" in meta ? [...meta.images] : undefined,
     };
   });
 }
-
-const approachIcons = [Lightbulb, Map, Shapes, Layers3, Rocket] as const;
 
 const approachText = {
   en: [
@@ -820,7 +864,6 @@ export function getApproach(locale: Locale): ApproachItem[] {
     number: String(index + 1).padStart(2, "0"),
     title: item.title,
     description: item.description,
-    icon: approachIcons[index],
   }));
 }
 

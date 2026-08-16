@@ -2,10 +2,25 @@ import {
   ArrowDown,
   ArrowUpRight,
   BrainCircuit,
+  Building2,
+  ChartNoAxesCombined,
+  CloudCog,
   Code2,
+  CreditCard,
+  Database,
+  Hotel,
+  Layers3,
+  Lightbulb,
+  Map,
   MoveRight,
   Network,
+  PlugZap,
+  Rocket,
+  Shapes,
+  ShieldCheck,
+  Smartphone,
   Sparkles,
+  Workflow,
 } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
@@ -29,6 +44,32 @@ export function HomePage({ locale }: { locale: Locale }) {
   const businessAreas = getBusinessAreas(locale);
   const coreCapabilities = getCoreCapabilities(locale);
   const projects = getProjects(locale);
+
+  const aboutIcons = [Code2, Network, BrainCircuit] as const;
+  const atlasCapabilityIcons = [
+    Network,
+    PlugZap,
+    Database,
+    BrainCircuit,
+    ShieldCheck,
+    CloudCog,
+  ] as const;
+  const coreCapabilityIcons = [
+    Code2,
+    Smartphone,
+    PlugZap,
+    BrainCircuit,
+    Workflow,
+    ShieldCheck,
+  ] as const;
+  const businessAreaIcons = [
+    Smartphone,
+    CreditCard,
+    Hotel,
+    Building2,
+    ChartNoAxesCombined,
+  ] as const;
+  const approachIcons = [Lightbulb, Map, Shapes, Layers3, Rocket] as const;
 
   const heroTitleTypography =
     locale === "en"
@@ -180,35 +221,23 @@ export function HomePage({ locale }: { locale: Locale }) {
               </div>
 
               <div className="mt-14 grid gap-4 sm:grid-cols-3">
-                {[
-                  {
-                    icon: Code2,
-                    title: copy.about.cards[0].title,
-                    text: copy.about.cards[0].text,
-                  },
-                  {
-                    icon: Network,
-                    title: copy.about.cards[1].title,
-                    text: copy.about.cards[1].text,
-                  },
-                  {
-                    icon: BrainCircuit,
-                    title: copy.about.cards[2].title,
-                    text: copy.about.cards[2].text,
-                  },
-                ].map((item, index) => (
-                  <Reveal key={item.title} delay={0.1 + index * 0.06}>
-                    <div className="h-full rounded-3xl border border-white/9 bg-white/[0.035] p-6">
-                      <item.icon size={21} className="text-white/62" />
-                      <h3 className="mt-7 text-base font-semibold text-white">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-white/38">
-                        {item.text}
-                      </p>
-                    </div>
-                  </Reveal>
-                ))}
+                {copy.about.cards.map((item, index) => {
+                  const AboutIcon = aboutIcons[index];
+
+                  return (
+                    <Reveal key={item.title} delay={0.1 + index * 0.06}>
+                      <div className="h-full rounded-3xl border border-white/9 bg-white/[0.035] p-6">
+                        <AboutIcon size={21} className="text-white/62" />
+                        <h3 className="mt-7 text-base font-semibold text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-6 text-white/38">
+                          {item.text}
+                        </p>
+                      </div>
+                    </Reveal>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -264,7 +293,10 @@ export function HomePage({ locale }: { locale: Locale }) {
               </Reveal>
 
               <div className="grid sm:grid-cols-2">
-                {atlasCapabilities.map((item, index) => (
+                {atlasCapabilities.map((item, index) => {
+                  const AtlasCapabilityIcon = atlasCapabilityIcons[index];
+
+                  return (
                   <Reveal
                     key={item.title}
                     delay={(index % 2) * 0.05}
@@ -272,7 +304,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                   >
                     <div className="flex items-start justify-between gap-6">
                       <span className="grid size-11 shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-blue-100/80">
-                        <item.icon size={19} />
+                        <AtlasCapabilityIcon size={19} />
                       </span>
                       <span className="text-[9px] font-semibold tracking-[0.2em] text-white/20">
                         {item.number}
@@ -285,7 +317,8 @@ export function HomePage({ locale }: { locale: Locale }) {
                       {item.description}
                     </p>
                   </Reveal>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -312,11 +345,14 @@ export function HomePage({ locale }: { locale: Locale }) {
           </Reveal>
 
           <div className="mt-16 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {coreCapabilities.map((capability, index) => (
+            {coreCapabilities.map((capability, index) => {
+              const CoreCapabilityIcon = coreCapabilityIcons[index];
+
+              return (
               <Reveal key={capability.title} delay={(index % 3) * 0.05}>
                 <article className="group h-full rounded-3xl border border-white/9 bg-white/[0.03] p-7 transition hover:border-white/16 hover:bg-white/[0.055] sm:p-8">
                   <div className="grid size-12 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-violet-200 transition group-hover:bg-white group-hover:text-black">
-                    <capability.icon size={21} />
+                    <CoreCapabilityIcon size={21} />
                   </div>
                   <p className="mt-8 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/24">
                     {capability.number}
@@ -329,7 +365,8 @@ export function HomePage({ locale }: { locale: Locale }) {
                   </p>
                 </article>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -354,7 +391,10 @@ export function HomePage({ locale }: { locale: Locale }) {
           </Reveal>
 
           <div className="mt-16 border-t border-white/10">
-            {businessAreas.map((area, index) => (
+            {businessAreas.map((area, index) => {
+              const BusinessAreaIcon = businessAreaIcons[index];
+
+              return (
               <Reveal key={area.title} delay={index * 0.03}>
                 <article className="group grid gap-5 border-b border-white/10 py-7 transition hover:bg-white/[0.02] sm:grid-cols-[80px_1fr_auto] sm:items-center sm:py-9">
                   <p className="text-xs font-semibold tracking-[0.18em] text-white/24">
@@ -369,11 +409,12 @@ export function HomePage({ locale }: { locale: Locale }) {
                     </p>
                   </div>
                   <span className="grid size-12 place-items-center rounded-full border border-white/10 bg-white/[0.035] text-white/52 transition group-hover:border-white/20 group-hover:bg-white group-hover:text-black">
-                    <area.icon size={20} />
+                    <BusinessAreaIcon size={20} />
                   </span>
                 </article>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -429,7 +470,10 @@ export function HomePage({ locale }: { locale: Locale }) {
             </Reveal>
 
             <div className="divide-y divide-white/10 border-y border-white/10">
-              {approach.map((item, index) => (
+              {approach.map((item, index) => {
+                const ApproachIcon = approachIcons[index];
+
+                return (
                 <Reveal key={item.title} delay={index * 0.04}>
                   <div className="group grid grid-cols-[48px_1fr] gap-5 py-8 sm:grid-cols-[70px_1fr_auto] sm:items-center sm:py-10">
                     <p className="text-xs font-semibold tracking-[0.18em] text-white/24">
@@ -443,13 +487,14 @@ export function HomePage({ locale }: { locale: Locale }) {
                         {item.description}
                       </p>
                     </div>
-                    <item.icon
+                    <ApproachIcon
                       className="hidden text-white/26 transition group-hover:text-white sm:block"
                       size={24}
                     />
                   </div>
                 </Reveal>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

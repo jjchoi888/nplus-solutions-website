@@ -165,6 +165,9 @@ export const siteCopy = {
       overview: "Project overview",
       capabilities: "Core capabilities",
       nextProject: "Next project",
+      visitWebsite: "Visit Website",
+      previousSlide: "Previous image",
+      nextSlide: "Next image",
     },
     network: {
       aiDetail: "Intelligence",
@@ -298,6 +301,9 @@ export const siteCopy = {
       overview: "프로젝트 개요",
       capabilities: "핵심 역량",
       nextProject: "다음 프로젝트",
+      visitWebsite: "사이트 방문",
+      previousSlide: "이전 이미지",
+      nextSlide: "다음 이미지",
     },
     network: {
       aiDetail: "인텔리전스",
@@ -431,6 +437,9 @@ export const siteCopy = {
       overview: "项目概览",
       capabilities: "核心能力",
       nextProject: "下一个项目",
+      visitWebsite: "访问网站",
+      previousSlide: "上一张图片",
+      nextSlide: "下一张图片",
     },
     network: {
       aiDetail: "智能",
