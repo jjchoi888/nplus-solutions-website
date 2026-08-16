@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProjectDetailPage } from "@/components/project-detail-page";
 import { ProjectBreadcrumbStructuredData } from "@/components/seo-structured-data";
+import { getProjectSeo } from "@/lib/project-seo";
 import { createSeoMetadata } from "@/lib/seo";
 import { getProjects, projects } from "@/lib/site-data";
 
@@ -20,11 +21,16 @@ export async function generateMetadata({
 
   if (!project) return {};
 
+  const seo = getProjectSeo("zh", slug, {
+    title: project.title,
+    description: project.summary,
+  });
+
   return createSeoMetadata({
     locale: "zh",
     path: `/projects/${slug}`,
-    title: project.title,
-    description: project.summary,
+    title: seo.title,
+    description: seo.description,
   });
 }
 
