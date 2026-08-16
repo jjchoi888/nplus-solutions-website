@@ -1,8 +1,10 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { getSiteCopy, type Locale } from "@/lib/i18n";
+import { getProjectMediaAlt } from "@/lib/project-media-alt";
 
 const projectImages: Record<string, string[]> = {
   pawcircle: [
@@ -123,13 +125,24 @@ export function ProjectMediaSlider({
         {images.map((src, imageIndex) => (
           <div
             key={src}
-            role="img"
-            aria-label={`${title} ${imageIndex + 1}`}
-            className={`absolute inset-3 bg-contain bg-center bg-no-repeat transition-opacity duration-700 ${
+            className={`absolute inset-3 transition-opacity duration-700 ${
               imageIndex === index ? "opacity-100" : "opacity-0"
             }`}
-            style={{ backgroundImage: `url("${src}")` }}
-          />
+          >
+            <Image
+              src={src}
+              alt={getProjectMediaAlt(locale, slug, title, imageIndex)}
+              fill
+              sizes={
+                large
+                  ? "(min-width: 1024px) 50vw, 100vw"
+                  : "(min-width: 1280px) 42vw, (min-width: 768px) 50vw, 100vw"
+              }
+              className="object-contain"
+              draggable={false}
+              priority={large && imageIndex === 0}
+            />
+          </div>
         ))}
       </div>
 

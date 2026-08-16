@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { ProjectMediaSlider } from "@/components/project-media-slider";
+import { getRelatedProjectSlugs, getRelatedProjectsLabel } from "@/lib/project-relations";
 import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
@@ -30,6 +31,12 @@ export function ProjectDetailPage({
 
   const currentIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
+  const relatedProjects = getRelatedProjectSlugs(project.slug)
+    .map((relatedSlug) =>
+      projects.find((item) => item.slug === relatedSlug),
+    )
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const relatedProjectsLabel = getRelatedProjectsLabel(locale);
 
   const projectTitleTypography =
     locale === "en"
@@ -154,6 +161,44 @@ export function ProjectDetailPage({
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-white/8 py-20 sm:py-24">
+        <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+          <Reveal>
+            <h2 className={`text-2xl font-semibold text-white sm:text-3xl ${sectionTitleTypography}`}>
+              {relatedProjectsLabel}
+            </h2>
+
+            <div className="mt-7 grid gap-4 md:grid-cols-3">
+              {relatedProjects.map((relatedProject) => (
+                <Link
+                  key={relatedProject.slug}
+                  href={localizedProjectHref(locale, relatedProject.slug)}
+                  aria-label={`${relatedProject.title}: ${relatedProject.eyebrow}`}
+                  className="group/related flex h-full flex-col rounded-[1.5rem] border border-white/9 bg-white/[0.03] p-5 transition hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/[0.055] sm:p-6"
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-violet-300/80">
+                    {relatedProject.eyebrow}
+                  </p>
+                  <h3 className="mt-3 text-xl font-semibold text-white">
+                    {relatedProject.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-white/42">
+                    {relatedProject.summary}
+                  </p>
+                  <span className="mt-auto flex items-center gap-2 pt-6 text-xs font-semibold text-white/58 transition group-hover/related:text-white">
+                    {relatedProject.title}
+                    <ArrowRight
+                      size={14}
+                      className="transition group-hover/related:translate-x-1"
+                    />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
