@@ -4,7 +4,7 @@ import { COMPANY_EMAIL } from "@/lib/company-info";
 
 export const runtime = "nodejs";
 
-const EMAIL_PATTERN = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function clean(value: unknown, maxLength: number) {
   return String(value ?? "").trim().slice(0, maxLength);
