@@ -33,6 +33,14 @@ const projectImages: Record<string, string[]> = {
     "/projects/tableorder/orderfinance.webp",
     "/projects/tableorder/orderhr.webp",
   ],
+  cms: [
+    "/projects/cms/cms1.webp",
+    "/projects/cms/cms2.webp",
+    "/projects/cms/cms3.webp",
+    "/projects/cms/cms4.webp",
+    "/projects/cms/cms5.webp",
+    "/projects/cms/cms6.webp",
+  ],
   hotelnplus: [
     "/projects/hotelnplus/pmsmain.webp",
     "/projects/hotelnplus/pmsdashboard.webp",
