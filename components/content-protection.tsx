@@ -5,6 +5,15 @@ import { useEffect } from "react";
 export function ContentProtection() {
   useEffect(() => {
     const preventContextMenu = (event: MouseEvent) => {
+      const target = event.target;
+
+      if (
+        target instanceof Element &&
+        target.closest('input, textarea, select, [contenteditable="true"]')
+      ) {
+        return;
+      }
+
       event.preventDefault();
     };
 
