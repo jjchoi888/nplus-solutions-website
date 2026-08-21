@@ -57,9 +57,11 @@ export async function POST(request: Request) {
     });
 
     const senderName = name || company || "Website visitor";
-    const forwardedFor = request.headers.get("x-forwarded-for") || "";
-    const ipAddress = forwardedFor.split(",")[0]?.trim() || "unknown";
-    const userAgent = request.headers.get("user-agent") || "unknown";
+    const receivedAt = new Date().toLocaleString("en-PH", {
+      timeZone: "Asia/Manila",
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
 
     await transporter.sendMail({
       from: `N Plus Website <${smtpUser}>`,
@@ -72,16 +74,12 @@ export async function POST(request: Request) {
         `Name: ${name}`,
         `Company: ${company || "-"}`,
         `Email: ${email}`,
-        `Language: ${locale}`,
         "",
-        "Project / Inquiry:",
+        "Message:",
         message,
         "",
-        "---",
-        `IP: ${ipAddress}`,
-        `User-Agent: ${userAgent}`,
-        `Received: ${new Date().toISOString()}`,
-      ].join("\\n"),
+        `Received: ${receivedAt}`,
+      ].join("\n"),
     });
 
     return NextResponse.json({ ok: true });
