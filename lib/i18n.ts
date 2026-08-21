@@ -145,6 +145,16 @@ export const siteCopy = {
       message: "Tell us about your project",
       messagePlaceholder:
         "Project idea, objective, location, timeline, or support required",
+      attachments: "Attachments",
+      attachFiles: "Attach files",
+      attachmentHelp:
+        "Images, PDF, Word, Excel, PowerPoint, TXT or CSV · up to 4 files / 3 MB total",
+      pasteHelp:
+        "Drag files here, choose files, or paste an image directly from your clipboard.",
+      removeAttachment: "Remove attachment",
+      attachmentTooMany: "You can attach up to 4 files.",
+      attachmentTooLarge: "Attachments must be 3 MB or less in total.",
+      attachmentTypeNotAllowed: "This file type is not supported.",
       prepared: "Email prepared",
       send: "Send inquiry",
       sending: "Sending...",
@@ -286,6 +296,16 @@ export const siteCopy = {
       message: "프로젝트에 대해 알려주세요",
       messagePlaceholder:
         "프로젝트 아이디어, 목표, 지역, 일정 또는 필요한 지원을 입력하세요",
+      attachments: "첨부파일",
+      attachFiles: "파일 첨부",
+      attachmentHelp:
+        "이미지, PDF, Word, Excel, PowerPoint, TXT, CSV · 최대 4개 / 총 3MB",
+      pasteHelp:
+        "파일을 끌어놓거나 선택할 수 있으며, 클립보드의 이미지를 바로 붙여넣을 수도 있습니다.",
+      removeAttachment: "첨부파일 삭제",
+      attachmentTooMany: "첨부파일은 최대 4개까지 가능합니다.",
+      attachmentTooLarge: "첨부파일 전체 용량은 3MB 이하여야 합니다.",
+      attachmentTypeNotAllowed: "지원하지 않는 파일 형식입니다.",
       prepared: "이메일 준비 완료",
       send: "문의 보내기",
       sending: "전송 중...",
@@ -427,6 +447,16 @@ export const siteCopy = {
       message: "请介绍您的项目",
       messagePlaceholder:
         "项目构想、目标、地区、时间计划或所需支持",
+      attachments: "附件",
+      attachFiles: "添加附件",
+      attachmentHelp:
+        "图片、PDF、Word、Excel、PowerPoint、TXT、CSV · 最多 4 个文件 / 总计 3MB",
+      pasteHelp:
+        "可拖放或选择文件，也可直接粘贴剪贴板中的图片。",
+      removeAttachment: "删除附件",
+      attachmentTooMany: "最多可添加 4 个附件。",
+      attachmentTooLarge: "附件总大小不得超过 3MB。",
+      attachmentTypeNotAllowed: "不支持此文件类型。",
       prepared: "邮件已准备",
       send: "发送咨询",
       sending: "正在发送...",
