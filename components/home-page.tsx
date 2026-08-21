@@ -28,6 +28,7 @@ import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { AtlasNetwork } from "@/components/atlas-network";
+import { COMPANY_ADDRESS, COMPANY_EMAIL } from "@/lib/company-info";
 import {
   getApproach,
   getAtlasCapabilities,
@@ -516,6 +517,27 @@ export function HomePage({ locale }: { locale: Locale }) {
               </p>
               <div className="mt-12 inline-flex items-center gap-4 border-t border-white/10 pt-7 text-sm text-white/52">
                 {copy.contact.start} <MoveRight size={18} />
+              </div>
+              <div className="mt-8 grid max-w-xl gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/42">
+                    {copy.contact.emailLabel}
+                  </p>
+                  <a
+                    href={`mailto:${COMPANY_EMAIL}`}
+                    className="mt-2 block text-sm font-medium text-white/78 transition hover:text-white"
+                  >
+                    {COMPANY_EMAIL}
+                  </a>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/42">
+                    {copy.contact.officeLabel}
+                  </p>
+                  <address className="mt-2 text-sm not-italic leading-6 text-white/68">
+                    {COMPANY_ADDRESS}
+                  </address>
+                </div>
               </div>
             </Reveal>
 

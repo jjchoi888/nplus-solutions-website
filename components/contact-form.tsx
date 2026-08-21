@@ -2,9 +2,8 @@
 
 import { ArrowUpRight, Check } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { COMPANY_EMAIL } from "@/lib/company-info";
 import { getSiteCopy, type Locale } from "@/lib/i18n";
-
-const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
 
 export function ContactForm({ locale }: { locale: Locale }) {
   const [sent, setSent] = useState(false);
@@ -23,7 +22,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
       `${copy.bodyName}: ${name}\n${copy.bodyCompany}: ${company}\n${copy.bodyEmail}: ${email}\n\n${copy.bodyProject}:\n${message}`,
     );
 
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
     setSent(true);
   }
 

@@ -133,6 +133,8 @@ export const siteCopy = {
       description:
         "Share your software requirement, platform concept, integration challenge, or industry opportunity. We will start by defining the problem and the right technology architecture.",
       start: "Start with a conversation",
+      emailLabel: "Email",
+      officeLabel: "Office",
     },
     form: {
       name: "Name",
@@ -269,6 +271,8 @@ export const siteCopy = {
       description:
         "소프트웨어 요구사항, 플랫폼 아이디어, 시스템 연동 과제 또는 산업 기회를 알려주세요. 문제를 정의하고 적합한 기술 아키텍처를 설계하는 것부터 시작합니다.",
       start: "상담 시작하기",
+      emailLabel: "이메일",
+      officeLabel: "회사 주소",
     },
     form: {
       name: "이름",
@@ -405,6 +409,8 @@ export const siteCopy = {
       description:
         "告诉我们您的软件需求、平台构想、系统集成难题或行业机会。我们将从定义问题并设计合适的技术架构开始。",
       start: "开始沟通",
+      emailLabel: "电子邮箱",
+      officeLabel: "公司地址",
     },
     form: {
       name: "姓名",

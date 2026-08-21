@@ -1,3 +1,4 @@
+import { COMPANY_EMAIL, COMPANY_POSTAL_ADDRESS } from "@/lib/company-info";
 import type { Locale } from "@/lib/i18n";
 import {
   LEGAL_NAME,
@@ -28,6 +29,11 @@ export function HomeStructuredData() {
         alternateName: [SITE_NAME, "N Plus"],
         url: `${SITE_URL}/`,
         logo: `${SITE_URL}/brand/nplus-mark.svg`,
+        email: COMPANY_EMAIL,
+        address: {
+          "@type": "PostalAddress",
+          ...COMPANY_POSTAL_ADDRESS,
+        },
         description:
           "N Plus Solutions develops software, digital platforms, AI-enabled systems, fintech, hospitality technology, and connected industry solutions.",
       },
