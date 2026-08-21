@@ -30,6 +30,11 @@ const projectSeo: Record<
       description:
         "Table Order & Pay connects table ordering and payment with POS, menu, settlement, finance, accounting, HR and workforce operations for restaurants and F&B businesses.",
     },
+    cms: {
+      title: "CMS Junket Casino Management System",
+      description:
+        "CMS is a multilingual casino management system specialized for junket casino operations, supporting English, Chinese, Korean and Japanese.",
+    },
     hotelnplus: {
       title: "Hotelnplus Hotel PMS & Hospitality Platform",
       description:
@@ -67,6 +72,11 @@ const projectSeo: Record<
       description:
         "Table Order & Pay는 레스토랑과 F&B 사업자를 위해 테이블 주문·결제와 POS, 메뉴, 정산, 재무·회계, 인사·노무 운영을 연결하는 통합 플랫폼입니다.",
     },
+    cms: {
+      title: "CMS 정켓 카지노 운영 관리 시스템",
+      description:
+        "CMS는 정켓 카지노 운영에 특화된 다국어 카지노 매니지먼트 시스템으로 영어, 중국어, 한국어, 일본어를 지원합니다.",
+    },
     hotelnplus: {
       title: "Hotelnplus 호텔 PMS·호스피탈리티 플랫폼",
       description:
@@ -103,6 +113,11 @@ const projectSeo: Record<
       title: "Table Order & Pay 餐厅桌边点餐支付平台",
       description:
         "Table Order & Pay 面向餐厅及餐饮企业，将桌边点餐与支付连接至 POS、菜单、结算、财务会计、人力资源及员工运营管理。",
+    },
+    cms: {
+      title: "CMS Junket 赌场运营管理系统",
+      description:
+        "CMS 是专为 Junket 赌场运营打造的多语言赌场管理系统，支持英语、中文、韩语和日语。",
     },
     hotelnplus: {
       title: "Hotelnplus 酒店 PMS 与酒店科技平台",

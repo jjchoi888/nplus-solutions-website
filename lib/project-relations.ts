@@ -1,11 +1,12 @@
 import type { Locale } from "@/lib/i18n";
 
 const relatedProjectSlugs: Record<string, string[]> = {
-  atlas: ["paynplus", "tableorder", "hotelnplus"],
+  atlas: ["cms", "paynplus", "hotelnplus"],
+  hotelnplus: ["cms", "atlas", "paynplus"],
+  paynplus: ["cms", "tableorder", "atlas"],
+  tableorder: ["paynplus", "cms", "atlas"],
+  cms: ["atlas", "paynplus", "hotelnplus"],
   pawcircle: ["atlas", "paynplus", "hotelnplus"],
-  paynplus: ["tableorder", "atlas", "hotelnplus"],
-  tableorder: ["paynplus", "atlas", "hotelnplus"],
-  hotelnplus: ["atlas", "paynplus", "mountain-resort-complex"],
   "mountain-bike-tourism-complex": [
     "mountain-resort-complex",
     "hotelnplus",

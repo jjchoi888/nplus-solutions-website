@@ -360,13 +360,19 @@ export function getBusinessAreas(locale: Locale): BusinessArea[] {
 const projectMeta = [
   { slug: "atlas", number: "01", accent: "blue" },
   {
-    slug: "pawcircle",
+    slug: "hotelnplus",
     number: "02",
-    accent: "violet",
-    website: "https://pawcircle-ten.vercel.app",
+    accent: "cyan",
+    website: "https://hotelnplus.com",
     images: [
-      "/projects/pawcircle/paw1.webp",
-      "/projects/pawcircle/paw2.webp",
+      "/projects/hotelnplus/pmsmain.webp",
+      "/projects/hotelnplus/pmsdashboard.webp",
+      "/projects/hotelnplus/pmsfront.webp",
+      "/projects/hotelnplus/pmschckin.webp",
+      "/projects/hotelnplus/pmsinventory.webp",
+      "/projects/hotelnplus/pmsevent.webp",
+      "/projects/hotelnplus/pmsfinance.webp",
+      "/projects/hotelnplus/pmstv.webp",
     ],
   },
   {
@@ -404,29 +410,37 @@ const projectMeta = [
     ],
   },
   {
-    slug: "hotelnplus",
+    slug: "cms",
     number: "05",
-    accent: "cyan",
-    website: "https://hotelnplus.com",
+    accent: "violet",
+    website: "https://junket-system.vercel.app",
     images: [
-      "/projects/hotelnplus/pmsmain.webp",
-      "/projects/hotelnplus/pmsdashboard.webp",
-      "/projects/hotelnplus/pmsfront.webp",
-      "/projects/hotelnplus/pmschckin.webp",
-      "/projects/hotelnplus/pmsinventory.webp",
-      "/projects/hotelnplus/pmsevent.webp",
-      "/projects/hotelnplus/pmsfinance.webp",
-      "/projects/hotelnplus/pmstv.webp",
+      "/projects/cms/cms1.webp",
+      "/projects/cms/cms2.webp",
+      "/projects/cms/cms3.webp",
+      "/projects/cms/cms4.webp",
+      "/projects/cms/cms5.webp",
+      "/projects/cms/cms6.webp",
+    ],
+  },
+  {
+    slug: "pawcircle",
+    number: "06",
+    accent: "violet",
+    website: "https://pawcircle-ten.vercel.app",
+    images: [
+      "/projects/pawcircle/paw1.webp",
+      "/projects/pawcircle/paw2.webp",
     ],
   },
   {
     slug: "mountain-bike-tourism-complex",
-    number: "06",
+    number: "07",
     accent: "orange",
   },
   {
     slug: "mountain-resort-complex",
-    number: "07",
+    number: "08",
     accent: "green",
   },
 ] as const;
@@ -449,18 +463,18 @@ const projectText = {
       ],
     },
     {
-      title: "PawCircle",
-      eyebrow: "Pet Community & Services Platform",
+      title: "Hotelnplus",
+      eyebrow: "Hospitality Technology Platform",
       summary:
-        "A mobile-first digital ecosystem connecting pet owners, communities, businesses, care providers, and trusted services.",
+        "A hospitality technology platform integrating hotel services, reservations, guest experiences, property data, and management tools.",
       description:
-        "PawCircle brings pet owners, community activity, location-based discovery, service providers, verified businesses, care workflows, and realtime communication into one connected platform designed for scalable regional expansion.",
-      businessArea: "Technology & Digital Platforms",
+        "Hotelnplus is positioned as an adaptable hospitality technology framework connecting reservation flows, guest journeys, service requests, property operations, reporting, and digital guest services within a unified platform.",
+      businessArea: "Tourism & Hospitality Development",
       capabilities: [
-        "Community and social platform development",
-        "Service marketplace workflows",
-        "Realtime communication systems",
-        "Identity, verification, and trust features",
+        "Hotel and reservation platform development",
+        "Guest service and digital concierge tools",
+        "Property operations integration",
+        "Management dashboards and reporting",
       ],
     },
     {
@@ -494,18 +508,33 @@ const projectText = {
       ],
     },
     {
-      title: "Hotelnplus",
-      eyebrow: "Hospitality Technology Platform",
+      title: "CMS",
+      eyebrow: "Junket Casino Management System",
       summary:
-        "A hospitality technology platform integrating hotel services, reservations, guest experiences, property data, and management tools.",
+        "A multilingual operations management platform built specifically for junket casino environments, supporting English, Chinese, Korean, and Japanese.",
       description:
-        "Hotelnplus is positioned as an adaptable hospitality technology framework connecting reservation flows, guest journeys, service requests, property operations, reporting, and digital guest services within a unified platform.",
-      businessArea: "Tourism & Hospitality Development",
+        "CMS is a casino management system designed specifically for junket casino operations. It provides a unified digital environment for managing day-to-day junket casino operations and is built for multilingual teams and users with support for English, Chinese, Korean, and Japanese.",
+      businessArea: "Technology & Digital Platforms",
       capabilities: [
-        "Hotel and reservation platform development",
-        "Guest service and digital concierge tools",
-        "Property operations integration",
-        "Management dashboards and reporting",
+        "Junket casino-focused operations management",
+        "English, Chinese, Korean, and Japanese language support",
+        "Centralized operational workflows and administration",
+        "Web-based management environment",
+      ],
+    },
+    {
+      title: "PawCircle",
+      eyebrow: "Pet Community & Services Platform",
+      summary:
+        "A mobile-first digital ecosystem connecting pet owners, communities, businesses, care providers, and trusted services.",
+      description:
+        "PawCircle brings pet owners, community activity, location-based discovery, service providers, verified businesses, care workflows, and realtime communication into one connected platform designed for scalable regional expansion.",
+      businessArea: "Technology & Digital Platforms",
+      capabilities: [
+        "Community and social platform development",
+        "Service marketplace workflows",
+        "Realtime communication systems",
+        "Identity, verification, and trust features",
       ],
     },
     {
@@ -556,18 +585,18 @@ const projectText = {
       ],
     },
     {
-      title: "PawCircle",
-      eyebrow: "반려동물 커뮤니티 & 서비스 플랫폼",
+      title: "Hotelnplus",
+      eyebrow: "호스피탈리티 기술 플랫폼",
       summary:
-        "반려인, 커뮤니티, 사업자, 돌봄 제공자와 신뢰 기반 서비스를 연결하는 모바일 중심 디지털 생태계.",
+        "호텔 서비스, 예약, 고객 경험, 자산 데이터와 운영 관리 도구를 통합하는 호스피탈리티 기술 플랫폼.",
       description:
-        "PawCircle은 반려인, 커뮤니티 활동, 위치 기반 탐색, 서비스 제공자, 검증된 사업자, 돌봄 워크플로와 실시간 커뮤니케이션을 하나의 연결된 플랫폼으로 통합하며 지역 확장을 고려해 설계됩니다.",
-      businessArea: "기술 & 디지털 플랫폼",
+        "Hotelnplus는 예약 흐름, 고객 여정, 서비스 요청, 호텔 운영, 리포팅과 디지털 고객 서비스를 하나의 플랫폼에서 연결하는 확장형 호스피탈리티 기술 프레임워크입니다.",
+      businessArea: "관광 & 호스피탈리티 개발",
       capabilities: [
-        "커뮤니티 및 소셜 플랫폼 개발",
-        "서비스 마켓플레이스 워크플로",
-        "실시간 커뮤니케이션 시스템",
-        "신원·검증·신뢰 기능",
+        "호텔 및 예약 플랫폼 개발",
+        "고객 서비스 및 디지털 컨시어지 도구",
+        "호텔 운영 시스템 연동",
+        "관리 대시보드 및 리포팅",
       ],
     },
     {
@@ -601,18 +630,33 @@ const projectText = {
       ],
     },
     {
-      title: "Hotelnplus",
-      eyebrow: "호스피탈리티 기술 플랫폼",
+      title: "CMS",
+      eyebrow: "정켓 카지노 운영 관리 시스템",
       summary:
-        "호텔 서비스, 예약, 고객 경험, 자산 데이터와 운영 관리 도구를 통합하는 호스피탈리티 기술 플랫폼.",
+        "정켓 카지노 운영에 특화되어 영어·중국어·한국어·일본어 4개 국어를 지원하는 다국어 카지노 운영 관리 플랫폼.",
       description:
-        "Hotelnplus는 예약 흐름, 고객 여정, 서비스 요청, 호텔 운영, 리포팅과 디지털 고객 서비스를 하나의 플랫폼에서 연결하는 확장형 호스피탈리티 기술 프레임워크입니다.",
-      businessArea: "관광 & 호스피탈리티 개발",
+        "CMS는 정켓 카지노의 운영 환경에 맞춰 개발된 카지노 매니지먼트 시스템입니다. 정켓 카지노의 일상적인 운영 관리를 하나의 디지털 환경에서 처리할 수 있도록 설계했으며, 영어·중국어·한국어·일본어를 지원해 다국적 운영팀과 사용자 환경에 대응합니다.",
+      businessArea: "기술 & 디지털 플랫폼",
       capabilities: [
-        "호텔 및 예약 플랫폼 개발",
-        "고객 서비스 및 디지털 컨시어지 도구",
-        "호텔 운영 시스템 연동",
-        "관리 대시보드 및 리포팅",
+        "정켓 카지노 특화 운영 관리",
+        "영어·중국어·한국어·일본어 4개 국어 지원",
+        "통합 운영 워크플로 및 관리",
+        "웹 기반 관리 환경",
+      ],
+    },
+    {
+      title: "PawCircle",
+      eyebrow: "반려동물 커뮤니티 & 서비스 플랫폼",
+      summary:
+        "반려인, 커뮤니티, 사업자, 돌봄 제공자와 신뢰 기반 서비스를 연결하는 모바일 중심 디지털 생태계.",
+      description:
+        "PawCircle은 반려인, 커뮤니티 활동, 위치 기반 탐색, 서비스 제공자, 검증된 사업자, 돌봄 워크플로와 실시간 커뮤니케이션을 하나의 연결된 플랫폼으로 통합하며 지역 확장을 고려해 설계됩니다.",
+      businessArea: "기술 & 디지털 플랫폼",
+      capabilities: [
+        "커뮤니티 및 소셜 플랫폼 개발",
+        "서비스 마켓플레이스 워크플로",
+        "실시간 커뮤니케이션 시스템",
+        "신원·검증·신뢰 기능",
       ],
     },
     {
@@ -663,18 +707,18 @@ const projectText = {
       ],
     },
     {
-      title: "PawCircle",
-      eyebrow: "宠物社区与服务平台",
+      title: "Hotelnplus",
+      eyebrow: "酒店业技术平台",
       summary:
-        "连接宠物主人、社区、商家、照护服务提供者与可信服务的移动优先数字生态系统。",
+        "整合酒店服务、预订、宾客体验、物业数据与管理工具的酒店业技术平台。",
       description:
-        "PawCircle 将宠物主人、社区互动、基于位置的发现、服务提供者、认证商家、照护流程与实时沟通整合到一个互联平台中，并为区域扩展而设计。",
-      businessArea: "科技与数字平台",
+        "Hotelnplus 是一个可扩展的酒店业技术框架，在统一平台中连接预订流程、宾客旅程、服务请求、物业运营、报表与数字宾客服务。",
+      businessArea: "旅游与酒店业开发",
       capabilities: [
-        "社区与社交平台开发",
-        "服务市场工作流",
-        "实时沟通系统",
-        "身份、认证与信任功能",
+        "酒店与预订平台开发",
+        "宾客服务与数字礼宾工具",
+        "物业运营系统集成",
+        "管理仪表板与报表",
       ],
     },
     {
@@ -708,18 +752,33 @@ const projectText = {
       ],
     },
     {
-      title: "Hotelnplus",
-      eyebrow: "酒店业技术平台",
+      title: "CMS",
+      eyebrow: "Junket 赌场运营管理系统",
       summary:
-        "整合酒店服务、预订、宾客体验、物业数据与管理工具的酒店业技术平台。",
+        "专为 Junket 赌场运营打造的多语言管理平台，支持英语、中文、韩语和日语四种语言。",
       description:
-        "Hotelnplus 是一个可扩展的酒店业技术框架，在统一平台中连接预订流程、宾客旅程、服务请求、物业运营、报表与数字宾客服务。",
-      businessArea: "旅游与酒店业开发",
+        "CMS 是专门面向 Junket 赌场运营环境开发的赌场管理系统。系统将日常运营管理集中到统一的数字化环境中，并支持英语、中文、韩语和日语，以适应跨国运营团队与多语言用户环境。",
+      businessArea: "科技与数字平台",
       capabilities: [
-        "酒店与预订平台开发",
-        "宾客服务与数字礼宾工具",
-        "物业运营系统集成",
-        "管理仪表板与报表",
+        "Junket 赌场专属运营管理",
+        "支持英语、中文、韩语和日语",
+        "集中化运营流程与管理",
+        "Web 端管理环境",
+      ],
+    },
+    {
+      title: "PawCircle",
+      eyebrow: "宠物社区与服务平台",
+      summary:
+        "连接宠物主人、社区、商家、照护服务提供者与可信服务的移动优先数字生态系统。",
+      description:
+        "PawCircle 将宠物主人、社区互动、基于位置的发现、服务提供者、认证商家、照护流程与实时沟通整合到一个互联平台中，并为区域扩展而设计。",
+      businessArea: "科技与数字平台",
+      capabilities: [
+        "社区与社交平台开发",
+        "服务市场工作流",
+        "实时沟通系统",
+        "身份、认证与信任功能",
       ],
     },
     {

@@ -31,6 +31,14 @@ const projectMediaLabels: Record<
       "finance management interface",
       "HR and workforce management interface",
     ],
+    cms: [
+      "junket casino management system interface 1",
+      "junket casino management system interface 2",
+      "junket casino management system interface 3",
+      "junket casino management system interface 4",
+      "junket casino management system interface 5",
+      "junket casino management system interface 6",
+    ],
     hotelnplus: [
       "hotel PMS platform home",
       "hotel management dashboard",
@@ -69,6 +77,14 @@ const projectMediaLabels: Record<
       "재무 관리 화면",
       "인사 및 노무 관리 화면",
     ],
+    cms: [
+      "정켓 카지노 운영 관리 시스템 화면 1",
+      "정켓 카지노 운영 관리 시스템 화면 2",
+      "정켓 카지노 운영 관리 시스템 화면 3",
+      "정켓 카지노 운영 관리 시스템 화면 4",
+      "정켓 카지노 운영 관리 시스템 화면 5",
+      "정켓 카지노 운영 관리 시스템 화면 6",
+    ],
     hotelnplus: [
       "호텔 PMS 플랫폼 홈",
       "호텔 운영 대시보드",
@@ -106,6 +122,14 @@ const projectMediaLabels: Record<
       "餐厅运营管理界面",
       "财务管理界面",
       "人力资源与员工管理界面",
+    ],
+    cms: [
+      "Junket 赌场运营管理系统界面 1",
+      "Junket 赌场运营管理系统界面 2",
+      "Junket 赌场运营管理系统界面 3",
+      "Junket 赌场运营管理系统界面 4",
+      "Junket 赌场运营管理系统界面 5",
+      "Junket 赌场运营管理系统界面 6",
     ],
     hotelnplus: [
       "酒店 PMS 平台首页",
