@@ -443,6 +443,12 @@ const projectMeta = [
     number: "08",
     accent: "green",
   },
+  {
+    slug: "atlas-qr-generator",
+    number: "09",
+    accent: "blue",
+    website: "https://qr.nplusplatforms.com",
+  },
 ] as const;
 
 const projectText = {
@@ -567,6 +573,21 @@ const projectText = {
         "Phased development and solution architecture",
       ],
     },
+    {
+      title: "Atlas-QR Generator",
+      eyebrow: "Free Multilingual vCard QR Tool",
+      summary:
+        "A free browser-based tool for creating downloadable vCard QR codes with contact, company, and social profile information.",
+      description:
+        "Atlas-QR Generator is a free public digital tool by N Plus Solutions. Users can create a scannable vCard QR code containing contact details, company information, website links, and social or messaging profiles, then download it as a PNG for business cards, brochures, signs, and events. The service supports English, Korean, and Simplified Chinese.",
+      businessArea: "Technology & Digital Platforms",
+      capabilities: [
+        "Free vCard contact QR code generation",
+        "LinkedIn, X, Instagram, WhatsApp, KakaoTalk, LINE, and Viber links",
+        "Custom center logo and high-quality PNG download",
+        "English, Korean, and Simplified Chinese support",
+      ],
+    },
   ],
   ko: [
     {
@@ -689,6 +710,21 @@ const projectText = {
         "단계별 개발 및 솔루션 아키텍처",
       ],
     },
+    {
+      title: "Atlas-QR Generator",
+      eyebrow: "무료 다국어 vCard QR 도구",
+      summary:
+        "연락처, 회사 정보와 소셜 프로필을 담은 vCard QR 코드를 만들고 내려받을 수 있는 무료 웹 도구.",
+      description:
+        "Atlas-QR Generator는 N Plus Solutions가 방문자에게 무료로 제공하는 디지털 도구입니다. 연락처, 회사 정보, 웹사이트와 소셜·메신저 프로필을 포함한 vCard QR 코드를 생성하고 명함, 안내책자, 표지판과 행사 자료에 사용할 PNG 파일로 내려받을 수 있습니다. 영어, 한국어와 중국어 간체를 지원합니다.",
+      businessArea: "기술 & 디지털 플랫폼",
+      capabilities: [
+        "무료 vCard 연락처 QR 코드 생성",
+        "LinkedIn·X·Instagram·WhatsApp·KakaoTalk·LINE·Viber 연결",
+        "중앙 로고 삽입 및 고품질 PNG 다운로드",
+        "영어·한국어·중국어 간체 지원",
+      ],
+    },
   ],
   zh: [
     {
@@ -809,6 +845,21 @@ const projectText = {
         "预订与物业系统集成",
         "数字目的地信息服务",
         "分阶段开发与解决方案架构",
+      ],
+    },
+    {
+      title: "Atlas-QR Generator",
+      eyebrow: "免费多语言 vCard 二维码工具",
+      summary:
+        "可创建并下载包含联系方式、公司信息与社交账号的 vCard 二维码的免费 Web 工具。",
+      description:
+        "Atlas-QR Generator 是 N Plus Solutions 面向访客免费提供的数字工具。用户可创建包含联系方式、公司信息、网站以及社交与即时通讯账号的 vCard 二维码，并下载为 PNG，用于名片、宣传册、标牌和活动资料。服务支持英语、韩语和简体中文。",
+      businessArea: "科技与数字平台",
+      capabilities: [
+        "免费生成 vCard 联系人二维码",
+        "连接 LinkedIn、X、Instagram、WhatsApp、KakaoTalk、LINE 与 Viber",
+        "添加中心徽标并下载高质量 PNG",
+        "支持英语、韩语和简体中文",
       ],
     },
   ],

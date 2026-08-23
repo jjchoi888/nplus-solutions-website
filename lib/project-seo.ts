@@ -50,6 +50,11 @@ const projectSeo: Record<
       description:
         "A technology-enabled mountain resort development integrating reservations, guest services, property systems, destination information and connected visitor experiences.",
     },
+    "atlas-qr-generator": {
+      title: "Atlas-QR Free vCard QR Code Generator",
+      description:
+        "Create a free multilingual vCard QR code with contact, company and social profile information, then download a PNG for business cards, signs and events.",
+    },
   },
   ko: {
     atlas: {
@@ -92,6 +97,11 @@ const projectSeo: Record<
       description:
         "산악 리조트 개발에 디지털 예약, 고객 서비스, 자산 운영 시스템, 관광지 정보와 연결형 방문객 경험을 결합하는 기술 기반 개발 프로젝트입니다.",
     },
+    "atlas-qr-generator": {
+      title: "Atlas-QR 무료 vCard QR 코드 생성기",
+      description:
+        "연락처, 회사 정보와 소셜 프로필을 담은 다국어 vCard QR 코드를 무료로 만들고 명함, 안내물과 행사에 사용할 PNG로 내려받으세요.",
+    },
   },
   zh: {
     atlas: {
@@ -133,6 +143,11 @@ const projectSeo: Record<
       title: "山地度假村数字技术开发项目",
       description:
         "将数字预订、宾客服务、物业运营系统、目的地信息及互联游客体验融入山地度假村规划与开发的技术驱动型项目。",
+    },
+    "atlas-qr-generator": {
+      title: "Atlas-QR 免费 vCard 二维码生成器",
+      description:
+        "免费创建包含联系方式、公司信息和社交账号的多语言 vCard 二维码，并下载 PNG 用于名片、标牌和活动资料。",
     },
   },
 };

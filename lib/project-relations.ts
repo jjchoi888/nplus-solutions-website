@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n";
 
 const relatedProjectSlugs: Record<string, string[]> = {
-  atlas: ["cms", "paynplus", "hotelnplus"],
+  atlas: ["cms", "paynplus", "atlas-qr-generator"],
   hotelnplus: ["cms", "atlas", "paynplus"],
   paynplus: ["cms", "tableorder", "atlas"],
   tableorder: ["paynplus", "cms", "atlas"],
@@ -17,6 +17,7 @@ const relatedProjectSlugs: Record<string, string[]> = {
     "mountain-bike-tourism-complex",
     "atlas",
   ],
+  "atlas-qr-generator": ["atlas", "paynplus", "tableorder"],
 };
 
 const relatedProjectsLabels: Record<Locale, string> = {

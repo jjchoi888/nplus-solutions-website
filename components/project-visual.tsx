@@ -146,6 +146,19 @@ export function ProjectVisual({
           </>
         )}
 
+        {project.slug === "atlas-qr-generator" && (
+          <>
+            <rect x="145" y="70" width="310" height="280" rx="34" className={`${common} ${styles.soft}`} />
+            <rect x="195" y="120" width="92" height="92" rx="8" className={common} />
+            <rect x="313" y="120" width="92" height="92" rx="8" className={common} />
+            <rect x="195" y="238" width="92" height="62" rx="8" className={common} />
+            <path d="M325 242h26v26h26v32h-52v-58Zm52 0h28v28h-28v-28Z" className={common} />
+            <path d="M213 138h56v56h-56v-56Zm118 0h56v56h-56v-56Zm-118 118h56v26h-56v-26Z" className={`${common} opacity-65`} />
+            <circle cx="300" cy="210" r="31" className={`${common} fill-[#0d0f14]`} />
+            <text x="300" y="220" textAnchor="middle" className="fill-blue-100 text-[28px] font-bold">A</text>
+          </>
+        )}
+
 
       </svg>
 
